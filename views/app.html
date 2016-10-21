@@ -1,0 +1,28 @@
+@{meta('title', 'description', 'keywords')}
+
+<!-- /app/css/ -->
+@{ngStyle('app')}
+
+
+
+<!-- /app/controllers/ -->
+@{ngController('formattext')}
+
+
+<div class="col-md-2 col-center-block">
+    <h2>json格式化</h2>
+</div>
+
+<div class="col-md-12">
+<div class="row" ng-controller="FormatTextCtrl">
+    <textarea class="col-md-6  ShowYScroll" rows="45" placeholder="请输入想格式化的文本"  ng-model="orgtext"></textarea>
+    <textarea class="col-md-6" rows="45" placeholder="请输入想格式化的文本"  ng-model="destext"></textarea>
+
+</div>
+</div>
+
+<div  ng-controller="FormatTextCtrl">
+<button class="btn btn-primary  btn-lg col-center-block"  ng-click="formatfc()" >转换</button>
+</div>
+
+@{ngTemplate('list')}

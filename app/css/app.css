@@ -1,0 +1,14 @@
+/*auto*/
+
+body { padding:20px; margin:0; font:normal 12px Arial; }
+
+.ShowYScroll {
+                                                            overflow-y: scroll;
+                                                        }
+
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
