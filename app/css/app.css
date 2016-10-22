@@ -12,3 +12,7 @@ body { padding:20px; margin:0; font:normal 12px Arial; }
     margin-left: auto;
     margin-right: auto;
 }
+
+.red-border{
+    border-color: #ff311b;
+}
