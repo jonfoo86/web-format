@@ -23,7 +23,14 @@ app.controller('FormatTextCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.class = "col-md-6";
         $scope.destext = "格式化中...";
         if (valiJson($scope.orgtext)) {
-            $scope.destext = valiJson($scope.orgtext);
+           // $scope.destext = valiJson($scope.orgtext);
+            $http.post('/formatJson', {'date': $scope.orgtext})
+                .success(function (data, status, headers, config) {
+                    $scope.destext = data;
+                })
+                .error(function () {
+                    $scope.destext = "格式化远程调用失败";
+                });
         }
         else {
             $http.post('/vidadateJson', {'date': $scope.orgtext})
@@ -31,7 +38,7 @@ app.controller('FormatTextCtrl', ['$scope', '$http', function ($scope, $http) {
                     $scope.destext = data;
                 })
                 .error(function () {
-                    $scope.destext = "远程调用失败";
+                    $scope.destext = "检查远程调用失败";
                 });
         }
     };
