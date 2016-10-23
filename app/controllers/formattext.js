@@ -1,34 +1,38 @@
-
-function validateJson(jsonString) {
-        return jsonlint.parse(jsonString);
-};
-
-function parseJson(jsonString) {
-    alert(jsonlint);
-    return jsonlint.parse(jsonString);
-
+function valiJson(jsonString) {
     try {
-        alert("parse start");
-         JSON.parse(jsonString);
+
+        JSON.parse(jsonString);
+        return true;
     }
     catch (err) {
-        alert("parse exception");
         // try to throw a more detailed error message using validate
-        validateJson(jsonString);
+        //  validateJson(jsonString);
 
         // rethrow the original error
-        throw err;
+
     }
+
+    return false;
 };
 
-app.controller('FormatTextCtrl', ['$scope', function ($scope) {
+app.controller('FormatTextCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.isVisible = false;
     $scope.class = "col-md-12";
     $scope.formatfc = function () {
         $scope.isVisible = true;
         $scope.class = "col-md-6";
-        $scope.destext =  "格式化失败";
-        $scope.destext =  parseJson($scope.orgtext);
-
+        $scope.destext = "格式化中...";
+        if (valiJson($scope.orgtext)) {
+            $scope.destext = valiJson($scope.orgtext);
+        }
+        else {
+            $http.post('/vidadateJson', {'date': $scope.orgtext})
+                .success(function (data, status, headers, config) {
+                    $scope.destext = data;
+                })
+                .error(function () {
+                    $scope.destext = "远程调用失败";
+                });
+        }
     };
 }]);
