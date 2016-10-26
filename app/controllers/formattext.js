@@ -16,28 +16,18 @@ function valiJson(jsonString) {
 };
 
 
-
-app.controller('FormatTextCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
     $scope.isVisible = false;
     $scope.class = "col-md-12";
     $scope.formatfc = function () {
-        $scope.isVisible = true;
+        $scope.isVisible = false;
         $scope.class = "col-md-6";
         $scope.destext = "格式化中...";
         if (valiJson($scope.orgtext)) {
-            var result = hljs.highlightAuto($scope.orgtext);
-           // $scope.destext ="<h2>xxxx</h2>";//result.value.toString();
-          // $scope.destext =$scope.orgtext;
-            /****
-            valiJson($scope.orgtext);
-            $http.post('/formatJson', {'date': $scope.orgtext})
-                .success(function (data, status, headers, config) {
-                    $scope.destext = data;
-                })
-                .error(function () {
-                    $scope.destext = "格式化远程调用失败";
-                });
-             ***/
+            var beautifycode = js_beautify($scope.orgtext);
+            alert(beautifycode);
+            var result = hljs.highlightAuto(beautifycode);
+            $scope.destext = result.value;
         }
         else {
             $http.post('/vidadateJson', {'date': $scope.orgtext})
@@ -48,33 +38,19 @@ app.controller('FormatTextCtrl', ['$scope', '$http', function ($scope, $http) {
                     $scope.destext = "检查远程调用失败";
                 });
         }
+
+        $timeout(function () {
+            $scope.isVisible = true;
+        }, 500);
     };
-}]).directive("formatdynamic",  function($compile){
-    alert("x");
-    return{
-        link: function(scope, element){
-            alert(scope.class);
-            var template = "<textarea >{{orgtext}}</textarea>";
+}]).directive("formatdynamic", function ($compile) {
+    return {
+        link: function (scope, element) {
+            alert(scope.destext);
+            var template = "<div>" + scope.destext + "</div>";
             var linkFn = $compile(template);
             var content = linkFn(scope);
             element.append(content);
         }
     };
-    /*
-    return {
-        templateUrl: function(elem, attr) {
-            return $scope.orgtext;
-        }
-    };
-
-    return{
-        link: function(scope, element){
-            var template =  hljs.highlightAuto(scope.orgtext);
-            alert(template.value);
-            var linkFn = $compile(template.value);
-            var content = linkFn(scope);
-            element.append(content);
-        }
-    }
-    */
 });

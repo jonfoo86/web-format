@@ -3,7 +3,9 @@
 <!-- /app/css/ -->
 @{ngStyle('app')}
 @{ngStyle('styles/default')}
-
+@{ngCommon('lib/beautify')}
+@{ngCommon('lib/beautify-css')}
+@{ngCommon('lib/beautify-html')}
 <!-- /app/controllers/ -->
 @{ngController('formattext')}
 
@@ -15,7 +17,7 @@
 <div class="col-md-12 " ng-controller="FormatTextCtrl">
     <div class="row">
         <textarea class="ShowYScroll  red-border" ng-class="class" rows="45" placeholder="请输入想格式化的文本"  ng-model="orgtext"></textarea>
-        <div class="col-md-6 red-border" ng-show="isVisible" rows="45">
+        <div class="col-md-6 red-border" ng-if="isVisible" rows="45">
             <div formatdynamic></div>
         </div>
         <!--textarea class="col-md-6 red-border" ng-show="isVisible" rows="45" placeholder="请输入想格式化的文本" ng-model="destext"></textarea-->
