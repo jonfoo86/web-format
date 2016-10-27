@@ -39,16 +39,4 @@ app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', functio
                 });
         }
     };
-}]).directive("formatdynamic", function ($compile) {
-    return {
-        link: function (scope, element) {
-
-            var template = scope.destext;
-            alert(template);
-            var linkFn = $compile(template);
-            var content = linkFn(scope);
-            alert(content);
-            element.append(content);
-        }
-    };
-});
+}]);

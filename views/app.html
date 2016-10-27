@@ -14,12 +14,14 @@
     <h2>json格式化</h2>
 </div>
 
+
 <div class="col-md-12 " ng-controller="FormatTextCtrl">
-    <div class="row " >
-        <textarea class="ShowYScroll  zeor-radius " ng-class="class" rows="45" placeholder="请输入想格式化的文本"
+    <div class="row "  >
+        <textarea class="ShowYScroll  zeor-radius " ng-class="class" placeholder="请输入想格式化的文本"
                   ng-model="orgtext"></textarea>
-        <div class="panel panel-primary col-md-6 zeor-radius height-x " ng-show="isVisible"  >
-            <div class="panel-body height-x ">
+
+        <div class="panel panel-primary col-md-6 zeor-radius " ng-show="isVisible">
+            <div class="panel-body ">
                 <p ng-bind-html="myHTML"></p>
             </div>
         </div>
