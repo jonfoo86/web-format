@@ -16,18 +16,18 @@ function valiJson(jsonString) {
 };
 
 
-app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
+app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', function ($scope, $http, $timeout, $sce) {
     $scope.isVisible = false;
     $scope.class = "col-md-12";
     $scope.formatfc = function () {
-        $scope.isVisible = false;
+        $scope.isVisible = true;
         $scope.class = "col-md-6";
         $scope.destext = "格式化中...";
         if (valiJson($scope.orgtext)) {
             var beautifycode = js_beautify($scope.orgtext);
-            alert(beautifycode);
             var result = hljs.highlightAuto(beautifycode);
-            $scope.destext = result.value;
+            var replacestr = result.value.replace(/\n/g, "<br\>");
+            $scope.myHTML = $sce.trustAsHtml(replacestr);
         }
         else {
             $http.post('/vidadateJson', {'date': $scope.orgtext})
@@ -38,18 +38,16 @@ app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', function ($scop
                     $scope.destext = "检查远程调用失败";
                 });
         }
-
-        $timeout(function () {
-            $scope.isVisible = true;
-        }, 500);
     };
 }]).directive("formatdynamic", function ($compile) {
     return {
         link: function (scope, element) {
-            alert(scope.destext);
-            var template = "<div>" + scope.destext + "</div>";
+
+            var template = scope.destext;
+            alert(template);
             var linkFn = $compile(template);
             var content = linkFn(scope);
+            alert(content);
             element.append(content);
         }
     };

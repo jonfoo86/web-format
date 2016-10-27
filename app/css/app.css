@@ -1,10 +1,14 @@
 /*auto*/
 
-body { padding:20px; margin:0; font:normal 12px Arial; }
+body {
+    padding: 20px;
+    margin: 0;
+    font: normal 12px Arial;
+}
 
 .ShowYScroll {
-                                                            overflow-y: scroll;
-                                                        }
+    overflow-y: scroll;
+}
 
 .col-center-block {
     float: none;
@@ -13,6 +17,16 @@ body { padding:20px; margin:0; font:normal 12px Arial; }
     margin-right: auto;
 }
 
-.red-border{
+.red-border {
     border-color: #ff311b;
+}
+
+.height-x {
+
+    height: 100%;
+}
+
+.zeor-radius {
+    border-radius: 0;
+
 }
