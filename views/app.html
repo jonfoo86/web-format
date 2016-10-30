@@ -16,29 +16,35 @@
 @{ngController('formattext')}
 <div class="container-fluid" ng-controller="FormatTextCtrl">
 
-    <header class="header black-bg">
+    <header class="header">
         <h2 class="col-md-offset-2">升职加薪网</h2>
     </header>
-
-    <div class="col-md-12 height-x" >
-        <ul class="pagination">
-            <li ng-repeat="item  in alltype"><a href="#">{{item }}</a></li>
-        </ul>
-    </div>
+    <br/>
+    <br/>
+    <br/>
 
 
-    <div class="col-md-12  ">
-        <div class="row ">
+    <div class="container col-md-12">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="item  in alltype"><a class="bluecolor" href="#">{{item }}</a></li>
+            </ul>
+            </nav>
+        </div>
+
+
+        <div class="col-md-12">
+            <div class="row ">
         <textarea class="ShowYScroll  zeor-radius " ng-class="class" placeholder="请输入想格式化的文本"
                   ng-model="orgtext"></textarea>
 
-            <div class="panel panel-primary col-md-6 zeor-radius " ng-show="isVisible">
-                <div class="panel-body ">
-                    <p ng-bind-html="myHTML"></p>
+                <div class="panel panel-primary col-md-6 zeor-radius " ng-show="isVisible">
+                    <div class="panel-body ">
+                        <p ng-bind-html="myHTML"></p>
+                    </div>
                 </div>
             </div>
+            <button class="btn btn-primary  btn-lg col-center-block" ng-click="formatfc()">转换</button>
         </div>
-        <button class="btn btn-primary  btn-lg col-center-block" ng-click="formatfc()">转换</button>
     </div>
-</div>
-@{ngTemplate('list')}
+    @{ngTemplate('list')}

@@ -18,11 +18,15 @@ body {
 }
 
 .red-border {
-    border-color: #ff311b;
+    border-color: #ffe180;
 }
 
-.test-black {
-background-color: #e2edff;
+ #bs-example-navbar-collapse-1.lu,
+ li > a:link,
+ li > a:focus,
+ li > a:hover
+{
+    background-color: #ffe180;
 }
 
 .height-x {
