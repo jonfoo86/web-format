@@ -21,11 +21,12 @@ body {
     border-color: #ffe180;
 }
 
- #bs-example-navbar-collapse-1.lu,
- li > a:link,
- li > a:focus,
- li > a:hover
-{
+.collapse >li > a:focus,
+.collapse >li > a:hover {
+    background-color: #4e99ff;
+}
+
+.yellow-bk {
     background-color: #ffe180;
 }
 

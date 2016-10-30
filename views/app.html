@@ -2,39 +2,31 @@
 
 <!-- /app/css/ -->
 @{ngStyle('app')}
-@{ngStyle('theme/bootstrap')}
-@{ngStyle('theme/style')}
-@{ngStyle('theme/style-responsive')}
-@{ngStyle('theme/table-responsive')}
-@{ngStyle('theme/to-do')}
-@{ngStyle('theme/zabuto_calendar')}
+
 @{ngStyle('styles/default')}
 @{ngCommon('lib/beautify')}
 @{ngCommon('lib/beautify-css')}
 @{ngCommon('lib/beautify-html')}
 <!-- /app/controllers/ -->
 @{ngController('formattext')}
-<div class="container-fluid" ng-controller="FormatTextCtrl">
-
+<div ng-controller="FormatTextCtrl" >
     <header class="header">
         <h2 class="col-md-offset-2">升职加薪网</h2>
     </header>
-    <br/>
-    <br/>
-    <br/>
+
 
 
     <div class="container col-md-12">
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+        <div class="collapse navbar-collapse yellow-bk ">
+            <ul class="nav navbar-nav ">
                 <li ng-repeat="item  in alltype"><a class="bluecolor" href="#">{{item }}</a></li>
             </ul>
             </nav>
         </div>
 
 
-        <div class="col-md-12">
-            <div class="row ">
+        <div class="col-md-12" style="padding-top:12px;">
+            <div class="row">
         <textarea class="ShowYScroll  zeor-radius " ng-class="class" placeholder="请输入想格式化的文本"
                   ng-model="orgtext"></textarea>
 
@@ -44,7 +36,10 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary  btn-lg col-center-block" ng-click="formatfc()">转换</button>
+            <div >
+                <button class="btn btn-primary  btn-lg col-center-block " ng-click="formatfc()">转换</button>
+            </div>
         </div>
+
     </div>
-    @{ngTemplate('list')}
+</div>
