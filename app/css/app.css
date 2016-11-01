@@ -21,9 +21,9 @@ body {
     border-color: #ffe180;
 }
 
-.collapse >li > a:focus,
-.collapse >li > a:hover {
-    background-color: #4e99ff;
+li  a,
+.navbar-collapse > li > a:hover {
+    background-color: #ff293f;
 }
 
 .yellow-bk {
@@ -38,4 +38,8 @@ body {
     border-radius: 0;
     height: 500px;
 
+}
+
+body {
+    background: rgba(0, 0, 128, 0.1) !important;
 }
