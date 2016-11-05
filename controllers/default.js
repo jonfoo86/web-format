@@ -1,6 +1,6 @@
 exports.install = function () {
     framework.route('/vidadateJson/*', validata_json, ['post']);
-    framework.route('/formatJson/*', format_json, ['post']);
+    framework.route('/#format/*', format_json, ['post']);
     framework.route('/*', view_app);
 };
 

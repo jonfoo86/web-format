@@ -16,11 +16,25 @@ function valiJson(jsonString) {
 };
 
 
-app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', function ($scope, $http, $timeout, $sce) {
+app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', '$location', '$document', function ($scope, $http, $timeout, $sce, $location, $document) {
     $scope.isVisible = false;
     $scope.class = "col-md-12";
-    $scope.alltype = ["json格式化", "javascript(js)格式化", "xml格式化", "html格式化", "c++格式化", "自动格式化"];
+    $scope.alltype = [{name: "json格式化", path: "format_json"},
+        {name: "javascript(js)格式化", path: "format_json"},
+        {name: "xml格式化", path: "format_xml"},
+        {name: "html格式化", path: "format_html"},
+        {name: "c++格式化", path: "format_c++"},
+        {name: "自动格式化", path: "format_auto"}];
+
     $scope.formatfc = function () {
+        var strs = $location.absUrl().split("/"); //字符分割
+        var currentpath = "#"+strs[strs.length - 1];
+        var ele = $document.find( currentpath);
+        alert(currentpath);
+        alert(ele.length);
+        ele.addClass("selected_nar");
+
+
         $scope.isVisible = true;
         $scope.class = "col-md-6";
         $scope.destext = "格式化中...";

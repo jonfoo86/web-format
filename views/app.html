@@ -9,22 +9,21 @@
 @{ngCommon('lib/beautify-html')}
 <!-- /app/controllers/ -->
 @{ngController('formattext')}
-<div class="yellow-bk step-screen-width" >
+<div class="yellow-bk step-screen-width">
 </div>
-<div ng-controller="FormatTextCtrl" >
+<div ng-controller="FormatTextCtrl">
     <header class="header">
         <h2 class="col-md-offset-2">升职加薪网</h2>
     </header>
 
-    <div class="collapse navbar-collapse step-screen-width yellow-bk ">
-        <ul class="nav navbar-nav ">
-            <li ng-repeat="item  in alltype"><a href="#">{{item }}</a></li>
+    <div  class="navbar    step-screen-width yellow-bk" role="navigation">
+        <ul class="nav navbar-nav" >
+            <li ng-repeat="item  in alltype"  id="{{item.path}}"><a href="{{item.path}}">{{item.name}}</a></li>
         </ul>
     </div>
 
 
     <div class="container col-md-12">
-
 
         <div class="col-md-12" style="padding-top:12px;">
             <div class="row">

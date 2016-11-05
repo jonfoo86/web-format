@@ -21,8 +21,7 @@ body {
     border-color: #ffe180;
 }
 
-li a:hover,
-li a:focus {
+.selected_nar {
     background-color: #ff293f;
 }
 
