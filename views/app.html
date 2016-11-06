@@ -3,7 +3,7 @@
 <!-- /app/css/ -->
 @{ngStyle('app')}
 
-@{ngStyle('styles/default')}
+@{ngStyle('styles/solarized-light')}
 @{ngCommon('lib/beautify')}
 @{ngCommon('lib/beautify-css')}
 @{ngCommon('lib/beautify-html')}
@@ -13,12 +13,12 @@
 </div>
 <div ng-controller="FormatTextCtrl">
     <header class="header">
-        <h2 class="col-md-offset-2">升职加薪网</h2>
+        <h2 class="col-md-offset-2  ten-top-margin">升职加薪网</h2>
     </header>
 
-    <div  class="navbar    step-screen-width yellow-bk" role="navigation">
-        <ul class="nav navbar-nav" >
-            <li ng-repeat="item  in alltype"  id="{{item.path}}"><a href="{{item.path}}">{{item.name}}</a></li>
+    <div  class="navbar    step-screen-width yellow-bk  no-radius " style="min-height: 40px;" role="navigation">
+        <ul class="nav navbar-nav"  style="height: 40px;">
+            <li ng-repeat="item  in alltype"  id="{{item.path}}" ><a class="padding-top-button" href="{{item.path}}">{{item.name}}</a></li>
         </ul>
     </div>
 

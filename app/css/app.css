@@ -26,11 +26,11 @@ body {
 }
 
 .yellow-bk {
-    background-color: #ffe180;
+    background-color: #96b97d;
 }
 
 .step-screen-width {
-    height: 10px;
+    height: 4px;
     width: 100%;
     padding-left: 0;
     padding-right: 0;
@@ -39,7 +39,7 @@ body {
 }
 
 .body-full-screen {
-    padding-top: 5px;
+    padding-top: 4px;
     padding-left: 0;
     padding-right: 0;
     margin-top: 0;
@@ -47,10 +47,30 @@ body {
     margin-right: 0;
 }
 
+.header-margin
+{
+    margin-top: 0px ;
+}
+
+
+.ten-top-margin
+{
+    margin-top: 10px ;
+}
+
+ul.nav>li>a
+{
+    padding-bottom: 7px;
+    padding-top:7px;
+}
 .height-x {
     height: 100%;
 }
 
+.no-radius
+{
+    border-radius: 0;
+}
 .zeor-radius {
     border-radius: 0;
     height: 500px;
@@ -58,5 +78,5 @@ body {
 }
 
 body {
-    background: rgba(0, 0, 128, 0.1) !important;
+    background: #f6f6f6 !important;
 }

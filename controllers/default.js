@@ -1,12 +1,17 @@
 exports.install = function () {
     framework.route('/vidadateJson/*', validata_json, ['post']);
-    framework.route('/#format/*', format_json, ['post']);
-    framework.route('/*', view_app);
+    framework.route('/{format}', view_format);
+    framework.route('/', view_format);
 };
 
-function view_app() {
+function view_format() {
     var self = this;
     self.view('app');
+};
+
+function view_root() {
+    var self = this;
+    self.redirect('/format_json');
 };
 
 function validata_json() {
@@ -24,15 +29,3 @@ function validata_json() {
     this.json({'data': '格式正常'});
 }
 
-function format_json() {
-    var highlight = require('highlight.js');
-    try {
-        var data = highlight.highlightAuto(this.body.date);
-        console.log(data);
-        this.plain(data.value);
-    }
-    catch (error) {
-        this.plain(error.message);
-        return;
-    }
-}
