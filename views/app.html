@@ -1,45 +1,45 @@
-@{meta('title', 'description', 'keywords')}
-
 <!-- /app/css/ -->
 @{ngStyle('app')}
-
 @{ngStyle('styles/solarized-light')}
 @{ngCommon('lib/beautify')}
 @{ngCommon('lib/beautify-css')}
 @{ngCommon('lib/beautify-html')}
 <!-- /app/controllers/ -->
 @{ngController('formattext')}
-<div class="yellow-bk step-screen-width">
+<div clas="container-fluid"
+     style="height:3px;border:none;border-top:5px solid  #3366cc;margin:none;margin-top: 10px ;"></div>
+<div class="container-fluid">
+    <h2 class="col-md-offset-2 text-left" style="margin-top: 12px "><strong
+            style="color:blue;"><em>升职加薪</em></strong><strong style="color:red;">.</strong><strong
+            style="color:darkorange;"><em>cn</em></strong></h2>
 </div>
-<div ng-controller="FormatTextCtrl">
-    <header class="header">
-        <h2 class="col-md-offset-2  ten-top-margin">升职加薪网</h2>
-    </header>
-
-    <div  class="navbar    step-screen-width yellow-bk  no-radius " style="min-height: 40px;" role="navigation">
-        <ul class="nav navbar-nav"  style="height: 40px;">
-            <li ng-repeat="item  in alltype"  id="{{item.path}}" ><a class="padding-top-button" href="{{item.path}}">{{item.name}}</a></li>
-        </ul>
-    </div>
-
-
-    <div class="container col-md-12">
-
-        <div class="col-md-12" style="padding-top:12px;">
+<div  ng-controller="FormatTextCtrl">
+    <nav class="navbar navbar-default navbar-inverse">
+        <div class="container-fluid " style="  color: #3366cc; " data-bg-text="text">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ng-repeat="item  in alltype"  id="{{item.path}}" ><a class="padding-top-button" href="{{item.path}}">{{item.name}}</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+        <div class="container-fluid">
             <div class="row">
-        <textarea class="ShowYScroll  zeor-radius " ng-class="class" placeholder="请输入想格式化的文本"
-                  ng-model="orgtext"></textarea>
-
-                <div class="panel panel-primary col-md-6 zeor-radius " ng-show="isVisible">
+    <textarea ng-class="class" style="  height: 500px;" placeholder="请输入想格式化的文本"
+              ng-model="orgtext"></textarea>
+                <div class="panel panel-primary col-md-6 " style="  height: 500px;" ng-show="isVisible">
                     <div class="panel-body ">
                         <p ng-bind-html="myHTML"></p>
                     </div>
                 </div>
             </div>
-            <div>
-                <button class="btn btn-primary  btn-lg col-center-block " ng-click="formatfc()">转换</button>
-            </div>
+            <button class="btn btn-primary  btn-lg " style="display: block;  margin-left: auto;  margin-right: auto;"
+                    ng-click="formatfc()">转换
+            </button>
         </div>
-
     </div>
 </div>
