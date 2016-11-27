@@ -1,6 +1,6 @@
 name                            : format123
 version                         : RELEASE
 
-default-ip                      : 0.0.0.0
+default-ip                      : 107.191.53.163
 default-port                    : 80
 
