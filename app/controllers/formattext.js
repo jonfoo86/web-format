@@ -1,6 +1,5 @@
 function valiJson(jsonString) {
     try {
-
         JSON.parse(jsonString);
         return true;
     }
@@ -16,39 +15,38 @@ function valiJson(jsonString) {
 };
 
 
-app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', '$location',  '$rootScope',function ($scope, $http, $timeout, $sce, $location, $rootScope) {
+app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', '$location',  function ($scope, $http, $timeout, $sce, $location) {
     $scope.isVisible = false;
     $scope.class = "col-md-12";
     $scope.alltype = [{name: "json格式化", path: "format_json"},
-        {name: "javascript(js)格式化", path: "format_json"},
+        {name: "javascript(js)格式化", path: "format_js"},
         {name: "xml格式化", path: "format_xml"},
         {name: "html格式化", path: "format_html"},
         {name: "c++格式化", path: "format_c++"},
         {name: "自动格式化", path: "format_auto"}];
 
-    $rootScope.title ="11111";
     $timeout(function () {
         var strs = $location.absUrl().split("/"); //字符分割
         var currentpath = strs[strs.length - 1];
         var elem = document.getElementById(currentpath);
-        if (elem)
-        {
+        if (elem) {
             elem.className = "active";
+            $scope.formatbk = currentpath;
         }
         else {
             elem = document.getElementById("format_auto");
-            if (elem)
+            if (elem)            {
                 elem.className = "active";
+            }
+            $scope.formatbk = "format_auto";
         }
-
     }, 2);
 
     $scope.formatfc = function () {
 
         $scope.isVisible = true;
-        $scope.class = "col-md-6";
+        $scope.class = "col-md-6 col-sm-6";
         $scope.destext = "格式化中...";
-
 
         if (1 || valiJson($scope.orgtext)) {
             var beautifycode = js_beautify($scope.orgtext);

@@ -8,16 +8,18 @@ body {
     overflow: hidden;
 
 }
+
 .bg-text::after {
     color: #fff;
-    filter:chroma(color= #fff);
+    filter: chroma(color=#fff);
     content: attr(data-bg-text);
-    font-size: 60px;
+    font-size: 50px;
     line-height: 1;
     position: absolute;
     top: 0px;
     right: 0px;
     -webkit-transform: rotate(-15deg);
     -moz-transform: rotate(-15deg);
+    -o-transform: rotate(-15deg);
     z-index: -1;
 }
