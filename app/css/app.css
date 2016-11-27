@@ -3,3 +3,20 @@
 body {
     background: #f6f6f6 !important;
 }
+
+.bg-text {
+    overflow: hidden;
+
+}
+.bg-text::after {
+    color: #fff;
+    filter:chroma(color= #fff);
+    content: attr(data-bg-text);
+    font-size: 50px;
+    line-height: 1;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+}
