@@ -16,7 +16,7 @@ function valiJson(jsonString) {
 };
 
 
-app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', '$location', function ($scope, $http, $timeout, $sce, $location) {
+app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', '$location',  '$rootScope',function ($scope, $http, $timeout, $sce, $location, $rootScope) {
     $scope.isVisible = false;
     $scope.class = "col-md-12";
     $scope.alltype = [{name: "json格式化", path: "format_json"},
@@ -26,21 +26,22 @@ app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', '$locat
         {name: "c++格式化", path: "format_c++"},
         {name: "自动格式化", path: "format_auto"}];
 
+    $rootScope.title ="11111";
     $timeout(function () {
         var strs = $location.absUrl().split("/"); //字符分割
         var currentpath = strs[strs.length - 1];
         var elem = document.getElementById(currentpath);
         if (elem)
         {
-            elem.className = "selected_nar";
+            elem.className = "active";
         }
         else {
             elem = document.getElementById("format_auto");
             if (elem)
-                elem.className = "selected_nar";
+                elem.className = "active";
         }
 
-    }, 1);
+    }, 2);
 
     $scope.formatfc = function () {
 
@@ -68,3 +69,4 @@ app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', '$locat
 
     };
 }]);
+

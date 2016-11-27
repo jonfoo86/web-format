@@ -12,11 +12,12 @@ body {
     color: #fff;
     filter:chroma(color= #fff);
     content: attr(data-bg-text);
-    font-size: 50px;
+    font-size: 60px;
     line-height: 1;
     position: absolute;
-    bottom: 0px;
-    left: 0px;
-    -webkit-transform: rotate(-20deg);
-    -moz-transform: rotate(-20deg);
+    top: 0px;
+    right: 0px;
+    -webkit-transform: rotate(-15deg);
+    -moz-transform: rotate(-15deg);
+    z-index: -1;
 }

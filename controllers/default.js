@@ -6,12 +6,11 @@ exports.install = function () {
 
 function view_format() {
     var self = this;
+    self.title('title controller');
+    self.description('description controller');
+    self.keywords('keywords controller');
     self.view('app');
-};
-
-function view_root() {
-    var self = this;
-    self.redirect('/format_json');
+    console.log("view");
 };
 
 function validata_json() {
