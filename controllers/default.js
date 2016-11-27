@@ -16,8 +16,14 @@ function view_format(format) {
         'format_c++': {des: "智能格式化c++ (Intelligent  formatting c++) ", keywords: "format  c++   智能 格式化 "},
         format_auto: {des: "智能格式化代码(Intelligent  formatting code)", keywords: "format  code   智能 格式化 "}
     };
-
     var self = this;
+
+    if (format == null) format = "format_auto";
+    if (des[format] == null) {
+        self.plain('错误的格式, 请检查输入的url是否正确');
+        return;
+    }
+
     self.title(format);
     self.description(des[format].des);
     self.keywords(des[format].keywords);
