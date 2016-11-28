@@ -4,6 +4,7 @@
 
 ```
 npm install total.js
+npm install fancy-log
 ```
 
 ## Second step
