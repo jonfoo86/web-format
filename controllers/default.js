@@ -1,5 +1,6 @@
 var log = require('fancy-log');
 exports.install = function () {
+    framework.middleware("seo", require('prerender-node'));
     framework.route('/vidadateJson/*', validata_json, ['post']);
     framework.route('/{format}', view_format);
     framework.route('/', view_format);

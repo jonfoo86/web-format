@@ -5,6 +5,7 @@
 ```
 npm install total.js
 npm install fancy-log
+npm install prerender-node
 ```
 
 ## Second step
