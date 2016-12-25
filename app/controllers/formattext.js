@@ -44,6 +44,7 @@ app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', '$locat
 
     $scope.formatfc = function () {
 
+
         $scope.isVisible = true;
         $scope.class = "col-md-6 col-sm-6";
         $scope.destext = "格式化中...";

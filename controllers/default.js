@@ -7,6 +7,7 @@ exports.install = function () {
 };
 
 function view_format(format) {
+    console.log("visible");
     var des = {
         json_format: {des: "智能格式化json (Intelligent  formatting json)", keywords: "format json 智能 格式化"},
         js_format: {
