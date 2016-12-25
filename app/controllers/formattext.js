@@ -34,16 +34,15 @@ app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', '$locat
             $scope.formatbk = currentpath;
         }
         else {
-            elem = document.getElementById("auto_format");
+            elem = document.getElementById("json_format");
             if (elem)            {
                 elem.className = "active";
             }
-            $scope.formatbk = "auto_format";
+            $scope.formatbk = "json_format";
         }
     }, 2);
 
     $scope.formatfc = function () {
-
 
         $scope.isVisible = true;
         $scope.class = "col-md-6 col-sm-6";

@@ -1,6 +1,6 @@
 var log = require('fancy-log');
 exports.install = function () {
-    framework.middleware("seo", require('prerender-node'));
+    //framework.middleware("seo", require('prerender-node'));
     framework.route('/vidadateJson/*', validata_json, ['post']);
     framework.route('/{format}', view_format);
     framework.route('/', view_format);
@@ -9,7 +9,7 @@ exports.install = function () {
 function view_format(format) {
     console.log("visible");
     var des = {
-        json_format: {des: "智能格式化json (Intelligent  formatting json)", keywords: "format json 智能 格式化"},
+        json_format: {des: "json在线解析 格式化", keywords: "json 在线解析 智能 格式化"},
         js_format: {
             des: "智能格式化javascript (Intelligent  formatting javascript) ",
             keywords: "format javascript js 智能 格式化 "
@@ -21,7 +21,7 @@ function view_format(format) {
     };
     var self = this;
 
-    if (format == null) format = "auto_format";
+    if (format == null) format = "json_format";
     if (des[format] == null) {
         self.plain('错误的格式, 请检查输入的url是否正确');
         log.error("visib: " + format + " " + self.req.host + "(" + self.req.ip + ")" + " robot:" +self.req.robot + "错误的访问");
