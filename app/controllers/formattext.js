@@ -25,12 +25,11 @@ function looks_like_html(source) {
 app.controller('FormatTextCtrl', ['$scope', '$http', '$timeout', '$sce', '$location', function ($scope, $http, $timeout, $sce, $location) {
     $scope.isVisible = false;
     $scope.class = "col-md-12";
-    $scope.alltype = [{name: "json格式化", path: "json_format"},
-        {name: "javascript(js)格式化", path: "js_format"},
-        {name: "xml格式化", path: "xml_format"},
-        {name: "html格式化", path: "html_format"},
-        {name: "c++格式化", path: "c++_format"},
-        {name: "自动格式化", path: "auto_format"}];
+    $scope.alltype = [{name: "json解析格式化", path: "json_format"},
+        {name: "javascript(js)解析格式化", path: "js_format"},
+        {name: "xml解析格式化", path: "xml_format"},
+        {name: "html解析格式化", path: "html_format"},
+        {name: "万能解析格式化", path: "auto_format"}];
 
     $timeout(function () {
         var strs = $location.absUrl().split("/"); //字符分割

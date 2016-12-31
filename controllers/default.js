@@ -7,32 +7,31 @@ exports.install = function () {
 };
 
 function view_format(format) {
-    console.log("visible");
     var des = {
-        json_format: {des: "json在线解析 格式化", keywords: "json 在线解析 智能 格式化"},
+        json_format: {des: "json在线解析 格式化", keywords: "json 在线解析 格式化", title: "json在线解析 格式化"},
         js_format: {
-            des: "智能格式化javascript (Intelligent  formatting javascript) ",
-            keywords: "format javascript js 智能 格式化 "
+            des: " javascript 在线 格式化",
+            keywords: "javascript js 在线 格式化",
+            title: "javascript 在线解析 格式化"
         },
-        xml_format: {des: "智能格式化 xml(Intelligent  formatting xml)", keywords: "xml html format 智能 格式化"},
-        html_format: {des: "智能格式化html(Intelligent  formatting html)", keywords: " html xml format 智能 格式化"},
-        'c++_format': {des: "智能格式化c++ (Intelligent  formatting c++) ", keywords: "c++  format 智能 格式化 "},
-        auto_format: {des: "智能格式化代码(Intelligent  formatting code)", keywords: " code format 智能 格式化 "}
+        xml_format: {des: "xml格式化", keywords: "xml 在线格式化", title: "xml  在线解析 格式化"},
+        html_format: {des: "html格式化", keywords: " html 在线格式化", title: "html  在线解析 格式化"},
+        auto_format: {des: "万能代码在线格式化", keywords: "code  在线格式化 ", title: "万能代码 在线格式化"}
     };
     var self = this;
 
     if (format == null) format = "json_format";
     if (des[format] == null) {
         self.plain('错误的格式, 请检查输入的url是否正确');
-        log.error("visib: " + format + " " + self.req.host + "(" + self.req.ip + ")" + " robot:" +self.req.robot + "错误的访问");
+        log.error("visib: " + format + " " + self.req.host + "(" + self.req.ip + ")" + " robot:" + self.req.robot + "错误的访问");
         return;
     }
 
-    self.title(format);
+    self.title(des[format].title);
     self.description(des[format].des);
     self.keywords(des[format].keywords);
     self.view('app');
-    log("visib: " + format + " " + self.req.host + "(" + self.req.ip + ")" + " robot:" +self.req.robot);
+    log("visib: " + format + " " + self.req.host + "(" + self.req.ip + ")" + " robot:" + self.req.robot);
 };
 
 function validata_json() {
